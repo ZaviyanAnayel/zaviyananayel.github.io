@@ -1,2 +1,545 @@
 <!DOCTYPE html>
-<html><head><meta charset="utf-8"><title>Zaviyan LLC</title></head><body><h1>Zaviyan LLC</h1><p>Home of CalcWorker and Gestara.</p></body></html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zaviyan Anayel | Founder & Software Architect — Zaviyan LLC</title>
+  <meta name="description" content="Official portfolio and ecosystem portal of Zaviyan Anayel, Founder of Zaviyan LLC. Creator of CalcWorker, WebDevWorker, SolasHaven, and innovative Android applications.">
+  <link rel="canonical" href="https://zaviyananayel.github.io/">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #07090e;
+      --card-bg: rgba(16, 21, 33, 0.65);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover-border: rgba(99, 102, 241, 0.4);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --primary: #6366f1;
+      --primary-glow: rgba(99, 102, 241, 0.25);
+      --accent-cyan: #06b6d4;
+      --accent-emerald: #10b981;
+      --accent-purple: #a855f7;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      background-image: 
+        radial-gradient(at 15% 15%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
+        radial-gradient(at 85% 25%, rgba(6, 182, 212, 0.1) 0px, transparent 50%),
+        radial-gradient(at 50% 85%, rgba(168, 85, 247, 0.08) 0px, transparent 60%);
+      background-attachment: fixed;
+    }
+
+    /* Ambient Glow Canvas Elements */
+    .glow-sphere {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .glow-1 { top: -100px; left: -100px; width: 500px; height: 500px; background: rgba(99, 102, 241, 0.15); }
+    .glow-2 { top: 40%; right: -150px; width: 600px; height: 600px; background: rgba(6, 182, 212, 0.1); }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+    }
+    .brand-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--primary), var(--accent-cyan));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #fff;
+      font-size: 1.1rem;
+      box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+    }
+    .nav-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--accent-emerald);
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-weight: 500;
+    }
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent-emerald);
+      box-shadow: 0 0 10px var(--accent-emerald);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 90px 0 60px;
+      text-align: center;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      backdrop-filter: blur(10px);
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 5.5vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.035em;
+      margin-bottom: 24px;
+      background: linear-gradient(180deg, #ffffff 30%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 36px;
+      font-weight: 400;
+    }
+    .stats-ribbon {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin: 48px auto 0;
+      max-width: 850px;
+    }
+    .stat-pill {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 16px 20px;
+      border-radius: 14px;
+      text-align: center;
+      backdrop-filter: blur(8px);
+    }
+    .stat-val {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .stat-lbl {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 4px;
+    }
+
+    /* Section Headers */
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 70px 0 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-title span {
+      color: var(--primary);
+    }
+
+    /* Cards Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 30px;
+      backdrop-filter: blur(16px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+      color: inherit;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--card-hover-border);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4), 0 0 30px var(--primary-glow);
+    }
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .card-badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      background: rgba(99, 102, 241, 0.15);
+      color: #818cf8;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+    }
+    .card-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #fff;
+      letter-spacing: -0.015em;
+    }
+    .card-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+    .card-link-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent-cyan);
+      font-weight: 600;
+      transition: gap 0.2s ease;
+    }
+    .card:hover .card-link-action {
+      gap: 10px;
+    }
+
+    /* Verification Box */
+    .verification-box {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      padding: 24px;
+      margin: 60px 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .v-info h4 {
+      font-size: 1rem;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .v-info p {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+    .v-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.2s ease;
+    }
+    .v-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 40px 0 60px;
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+    }
+    footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    footer a:hover {
+      color: #fff;
+    }
+
+    @media (max-width: 640px) {
+      .grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="glow-sphere glow-1"></div>
+  <div class="glow-sphere glow-2"></div>
+
+  <div class="container">
+    <!-- Navbar -->
+    <nav>
+      <a href="https://zaviyananayel.github.io" class="brand">
+        <div class="brand-avatar">Z</div>
+        <span>Zaviyan Anayel</span>
+      </a>
+      <div class="nav-status">
+        <span class="pulse-dot"></span>
+        <span>Systems Operational</span>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+      <div class="badge">
+        <span>⚡</span> Founder & Software Architect — Zaviyan LLC
+      </div>
+      <h1>Engineering High-Utility Web & Mobile Ecosystems</h1>
+      <p>Building high-speed web computing engines, digital human sanctuaries, and intuitive mobile intelligence platforms.</p>
+      
+      <div class="stats-ribbon">
+        <div class="stat-pill">
+          <div class="stat-val">100+</div>
+          <div class="stat-lbl">Live Calculators</div>
+        </div>
+        <div class="stat-pill">
+          <div class="stat-val">85+</div>
+          <div class="stat-lbl">Developer Utilities</div>
+        </div>
+        <div class="stat-pill">
+          <div class="stat-val">99.9%</div>
+          <div class="stat-lbl">Global Uptime</div>
+        </div>
+        <div class="stat-pill">
+          <div class="stat-val">100%</div>
+          <div class="stat-lbl">AdMob Verified</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Flagship Web Properties -->
+    <h2 class="section-title">
+      <span>//</span> Production Web Platforms
+    </h2>
+    <div class="grid">
+      <!-- CalcWorker -->
+      <a href="https://www.calcworker.com" target="_blank" rel="noopener noreferrer" class="card">
+        <div>
+          <div class="card-top">
+            <div class="card-icon" style="color:#60a5fa; background:rgba(59,130,246,0.1); border-color:rgba(59,130,246,0.2);">🧮</div>
+            <span class="card-badge">Finance & Math</span>
+          </div>
+          <h3 class="card-title">CalcWorker</h3>
+          <p class="card-desc">Over 100+ ultra-fast, zero-flicker financial, mortgage, cryptocurrency, engineering, and personal calculators operating with hardware acceleration.</p>
+        </div>
+        <div class="card-footer">
+          <span>calcworker.com</span>
+          <span class="card-link-action">Launch Engine &rarr;</span>
+        </div>
+      </a>
+
+      <!-- WebDevWorker -->
+      <a href="https://www.webdevworker.com" target="_blank" rel="noopener noreferrer" class="card">
+        <div>
+          <div class="card-top">
+            <div class="card-icon" style="color:#34d399; background:rgba(16,185,129,0.1); border-color:rgba(16,185,129,0.2);">🛠️</div>
+            <span class="card-badge">Dev Tools</span>
+          </div>
+          <h3 class="card-title">WebDevWorker</h3>
+          <p class="card-desc">Integrated developer workstation: 11 AI-driven code instruments and 85+ instant client-side tools for formatting, regex, security inspection, and conversions.</p>
+        </div>
+        <div class="card-footer">
+          <span>webdevworker.com</span>
+          <span class="card-link-action">Open Studio &rarr;</span>
+        </div>
+      </a>
+
+      <!-- SolasHaven -->
+      <a href="https://www.solashaven.com" target="_blank" rel="noopener noreferrer" class="card">
+        <div>
+          <div class="card-top">
+            <div class="card-icon" style="color:#f472b6; background:rgba(236,72,153,0.1); border-color:rgba(236,72,153,0.2);">🕊️</div>
+            <span class="card-badge">Memoir & Sanctuary</span>
+          </div>
+          <h3 class="card-title">SolasHaven</h3>
+          <p class="card-desc">A serene, permanent digital sanctuary dedicated to heartfelt reflections, grief recovery, anonymous solace, and enduring human memory.</p>
+        </div>
+        <div class="card-footer">
+          <span>solashaven.com</span>
+          <span class="card-link-action">Enter Sanctuary &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Zaviyan LLC -->
+      <a href="https://zaviyanllc.com" target="_blank" rel="noopener noreferrer" class="card">
+        <div>
+          <div class="card-top">
+            <div class="card-icon" style="color:#a78bfa; background:rgba(139,92,246,0.1); border-color:rgba(139,92,246,0.2);">🏛️</div>
+            <span class="card-badge">Corporate Entity</span>
+          </div>
+          <h3 class="card-title">Zaviyan LLC</h3>
+          <p class="card-desc">US-registered technology holding and software development venture building and scaling modern internet assets and software suites.</p>
+        </div>
+        <div class="card-footer">
+          <span>zaviyanllc.com</span>
+          <span class="card-link-action">Explore Corporate &rarr;</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Mobile Ecosystem -->
+    <h2 class="section-title">
+      <span>//</span> Mobile Applications (Android & Compose)
+    </h2>
+    <div class="grid">
+      <!-- ParallelDay -->
+      <div class="card">
+        <div>
+          <div class="card-top">
+            <div class="card-icon" style="color:#fbbf24; background:rgba(245,158,11,0.1); border-color:rgba(245,158,11,0.2);">🌅</div>
+            <span class="card-badge">Jetpack Compose</span>
+          </div>
+          <h3 class="card-title">ParallelDay</h3>
+          <p class="card-desc">Native Android Kotlin app for capturing and discovering shared synchronized moments worldwide — ephemeral, quiet, and profoundly human.</p>
+        </div>
+        <div class="card-footer">
+          <span>Google Play Track</span>
+          <span style="color:var(--text-dim);">Internal / Closed Test</span>
+        </div>
+      </div>
+
+      <!-- Gestara -->
+      <a href="https://gestara-ai.vercel.app" target="_blank" rel="noopener noreferrer" class="card">
+        <div>
+          <div class="card-top">
+            <div class="card-icon" style="color:#f43f5e; background:rgba(244,63,94,0.1); border-color:rgba(244,63,94,0.2);">🌸</div>
+            <span class="card-badge">Maternal Health</span>
+          </div>
+          <h3 class="card-title">Gestara</h3>
+          <p class="card-desc">Intelligent pregnancy journey tracking with daily developmental milestones, nutritional guidance, and privacy-first maternal tracking.</p>
+        </div>
+        <div class="card-footer">
+          <span>gestara-ai.vercel.app</span>
+          <span class="card-link-action">View App &rarr;</span>
+        </div>
+      </a>
+
+      <!-- AI Mobile Trio -->
+      <div class="card">
+        <div>
+          <div class="card-top">
+            <div class="card-icon" style="color:#38bdf8; background:rgba(56,189,248,0.1); border-color:rgba(56,189,248,0.2);">⚡</div>
+            <span class="card-badge">Utility Suite</span>
+          </div>
+          <h3 class="card-title">OmniFix & EchoShield AI</h3>
+          <p class="card-desc">Compact utility suite built with modern Capacitor Android architecture, featuring real-time diagnostic helpers and acoustic shield monitors.</p>
+        </div>
+        <div class="card-footer">
+          <span>Capacitor Mobile</span>
+          <span style="color:var(--text-dim);">Android Ecosystem</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Verification / AdMob Notice -->
+    <div class="verification-box">
+      <div class="v-info">
+        <h4>Google AdMob & Verification Host</h4>
+        <p>This repository serves as the official DNS & host for AdMob <code>app-ads.txt</code> verification across Zaviyan LLC mobile apps.</p>
+      </div>
+      <a href="/app-ads.txt" class="v-btn" target="_blank">
+        <span>📄</span> View app-ads.txt
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2026 Zaviyan LLC. All rights reserved. Architected by <a href="https://github.com/ZaviyanAnayel" target="_blank">Zaviyan Anayel</a>.</p>
+    </footer>
+  </div>
+
+</body>
+</html>
